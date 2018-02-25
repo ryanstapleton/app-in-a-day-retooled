@@ -1,24 +1,30 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Reworked the app-in-a-day assigned by Bottega at 6 weeks. 
 
-Things you may want to cover:
+Original project REQs:
+- Google Calender (possibly google maps API)
+- Login/logout
+- CRUD events
+- An event must be approved by admin to be published
+- Styling ala "devcamp"
+- Users can mark event as favorite
+- My upcoming events
+- Reminder of event(email, sms, etc)
+- Set RSVP (possible reminder)
 
-* Ruby version
+## Things I got working:
 
-* System dependencies
+- Database connections between Events, Favorites and RSVPs.
+- Add and remove favorites and rsvps
+- Have a user page display created events, RSVPs and favorites
+- Display events created on the index page
 
-* Configuration
+## TODO:
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Google Calender (possibly google maps API)
+- An event must be approved by admin to be published
+- Styling ala "devcamp"
+- My upcoming events
+- Reminder of event(email, sms, etc)
+- Set RSVP (possible reminder)
