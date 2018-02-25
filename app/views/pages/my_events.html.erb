@@ -1,0 +1,22 @@
+<h1>Events</h1>
+
+<h4>My Events</h4>
+<% unless @events.empty? %>
+  <%= render 'events' %>
+<% else %>
+  <p>You haven't created any events.</p>
+<% end %>
+
+<h4>RSVPed Events</h4>
+<% unless @rsvps.empty? %>
+  <%= render 'rsvps' %>
+<% else %>
+  <p>You don't have any events RSVPed.</p>
+<% end %>
+
+<h4>Favorites</h4>
+<% unless @favorites.empty? %>
+  <%= render 'favorites' %>
+<% else %>
+  <p>You don't have any favorited events.</p>
+<% end %>

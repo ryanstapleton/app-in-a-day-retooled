@@ -1,0 +1,58 @@
+<% @events.each do |event| %>
+  <div class="container">
+    <div class="card">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="event-title"><%= link_to event.title.titleize, event %></h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5">
+          <div class="column-left">
+            <%= image_tag "#{event.thumb_image}", width: 300, height: 300 %>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="column-right">
+            <p><%= event.date %><%= "Event location: #{event.location}" %></p>
+            <%= truncate(event.body) %>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="column-right">
+
+            <% if current_user %>
+              <% found_rsvp = false %>
+              <% found_fav = false %>
+              <% current_user.rsvps.each do |rsvp| %>
+                <% if rsvp.event_id == event.id %>
+                  <%= button_to "Delete RSVP", rsvp_path(rsvp), method: :delete %>
+                  <% found_rsvp = true %>
+                <% end %>
+              <% end %>
+              <% if found_rsvp == false %>
+                <%= button_to "Add RSVP", rsvps_path(:event_id => event.id) %>
+              <% end %>
+
+              <% current_user.favorites.each do |favorite| %>
+                <% if favorite.event_id == event.id %>
+                  <%= button_to "Delete Favorite", favorite_path(favorite), method: :delete %>
+                  <% found_fav = true %>
+                <% end %>
+              <% end %>
+              <% if found_fav == false %>
+                <%= button_to "Add Favorite", favorites_path(:event_id => event.id) %>
+              <% end %>
+
+            <% else %>
+              <%= button_to "RSVP", new_user_session_path %>
+              <%= button_to "Favorite", new_user_session_path %>
+            <% end %>
+    
+          </div>
+        </div>
+        <hr>
+      </div>
+    </div>
+  </div>
+<% end %>

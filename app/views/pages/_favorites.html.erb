@@ -1,0 +1,6 @@
+<% @favorites.each do |favorite| %>
+  <%= favorite.event.thumb_image %>
+  <%= favorite.event.title %>
+  <%= favorite.event.body %>
+  <%= favorite.event.date %>
+<% end %>
