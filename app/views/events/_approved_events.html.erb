@@ -24,15 +24,22 @@
             <% if current_user %>
               <% found_rsvp = false %>
               <% found_fav = false %>
+
               <% current_user.rsvps.each do |rsvp| %>
                 <% if rsvp.event_id == event.id %>
                   <%= button_to "Delete RSVP", rsvp_path(rsvp), method: :delete %>
                   <% found_rsvp = true %>
                 <% end %>
               <% end %>
+
               <% if found_rsvp == false %>
                 <%= button_to "Add RSVP", rsvps_path(:event_id => event.id) %>
               <% end %>
+
+
+
+
+
 
               <% current_user.favorites.each do |favorite| %>
                 <% if favorite.event_id == event.id %>
@@ -40,6 +47,7 @@
                   <% found_fav = true %>
                 <% end %>
               <% end %>
+
               <% if found_fav == false %>
                 <%= button_to "Add Favorite", favorites_path(:event_id => event.id) %>
               <% end %>
